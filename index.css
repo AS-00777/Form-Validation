@@ -1,103 +1,99 @@
-/* Dark Background with Slightly Lighter Shades */
+/* Light Background with Black Text */
 body {
-    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-    height: 100vh;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    height: 100vh;
     margin: 0;
-    transition: filter 0.5s ease-in-out; /* For blur effect */
+    color: #000; /* Default text color set to black */
 }
 
-/* Balanced Dark Glassmorphic Form Container */
+/* Form Container */
 .container {
     max-width: 450px;
-    background: rgba(25, 25, 25, 0.9); /* Slightly lighter glass effect */
-    backdrop-filter: blur(10px);
-    padding: 25px;
+    background: white;
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    text-align: start;
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 /* Heading */
 h2 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
+    text-align: center;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #000; /* Black heading */
 }
 
-/* Darker but Visible Form Fields */
+/* Form Labels */
+.form-label {
+    font-weight: 500;
+    color: #222; /* Slightly darker black for clarity */
+}
+
+/* Form Input Fields */
 .form-control {
-    background: rgba(45, 45, 45, 0.8);
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    transition: 0.3s;
+    border-radius: 10px;
+    border: 1px solid #bbb;
+    padding: 12px;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    color: #000; /* Black text inside inputs */
+    background: #fff;
 }
 
 .form-control:focus {
-    background: rgba(55, 55, 55, 0.9);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-    outline: none;
-}
-
-/* Lighter Placeholder Text */
-input::placeholder, 
-textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5) !important; /* Light gray for better visibility */
-    opacity: 1 !important;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
 }
 
 /* Error Messages */
 small {
-    display: block;
     font-size: 12px;
-    margin-top: 5px;
-    color: #ff4d4d;
+    color: #d9534f;
 }
 
-/* Submit Button (Enhanced Contrast) */
+/* Submit Button */
 .btn-primary {
     background: linear-gradient(135deg, #ff6b6b, #ff4757);
     border: none;
     padding: 12px;
     font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    border-radius: 10px;
     color: white;
+    transition: 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #ff4757, #e84118);
-    box-shadow: 0px 5px 15px rgba(255, 71, 87, 0.5);
+    box-shadow: 0px 4px 12px rgba(255, 71, 87, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Success Message */
-#successMessage {
-    background: rgba(40, 150, 60, 0.9);
-    color: white;
-    padding: 12px;
-    margin-top: 15px;
+.success-message {
+    display: none;
     text-align: center;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: 0.5s ease-in-out;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(76, 175, 80, 0.4);
+    animation: slideIn 0.5s ease-in-out;
 }
 
-/* Fade In Animation */
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
@@ -105,3 +101,13 @@ small {
     }
 }
 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
