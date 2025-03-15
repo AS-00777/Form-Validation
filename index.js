@@ -3,41 +3,40 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     validateForm();
 });
 
+// Add real-time validation using onChange event
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("change", validateForm);
+});
+
 function validateForm() {
     let isValid = true;
 
-    // Get form values
-    let fullName = document.getElementById("fullName").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let phone = document.getElementById("phone").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let confirmPassword = document.getElementById("confirmPassword").value.trim();
+    // Define validation rules
+    const fields = [
+        { id: "fullName", minLength: 5, errorId: "nameError", errorMsg: "Name must be at least 5 characters long." },
+        { id: "email", pattern: /.+@.+\..+/, errorId: "emailError", errorMsg: "Enter a valid email." },
+        { id: "phone", pattern: /^\d{10}$/, errorId: "phoneError", errorMsg: "Enter a valid 10-digit phone number." }
+    ];
 
-    // Name validation
-    if (fullName.length < 5) {
-        setError("nameError", "Name must be at least 5 characters long.");
-        isValid = false;
-    } else {
-        clearError("nameError");
-    }
-
-    // Email validation
-    if (!email.includes("@")) {
-        setError("emailError", "Enter a valid email.");
-        isValid = false;
-    } else {
-        clearError("emailError");
-    }
-
-    // Phone validation
-    if (phone.length !== 10 || phone === "1234567890" || isNaN(phone)) {
-        setError("phoneError", "Enter a valid 10-digit phone number.");
-        isValid = false;
-    } else {
-        clearError("phoneError");
-    }
+    // Loop through each field and validate
+    fields.forEach(field => {
+        let value = document.getElementById(field.id).value.trim();
+        if (field.minLength && value.length < field.minLength) {
+            setError(field.errorId, field.errorMsg);
+            isValid = false;
+        } else if (field.pattern && !field.pattern.test(value)) {
+            setError(field.errorId, field.errorMsg);
+            isValid = false;
+        } else {
+            clearError(field.errorId);
+        }
+    });
 
     // Password validation
+    let password = document.getElementById("password").value.trim();
+    let confirmPassword = document.getElementById("confirmPassword").value.trim();
+    let fullName = document.getElementById("fullName").value.trim();
+
     if (password.length < 8 || password.toLowerCase() === "password" || password.toLowerCase() === fullName.toLowerCase()) {
         setError("passwordError", "Password must be at least 8 characters and should not be 'password' or your name.");
         isValid = false;
@@ -45,7 +44,6 @@ function validateForm() {
         clearError("passwordError");
     }
 
-    // Confirm password validation
     if (confirmPassword !== password) {
         setError("confirmPasswordError", "Passwords do not match.");
         isValid = false;
