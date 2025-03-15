@@ -1,0 +1,107 @@
+/* Dark Background with Slightly Lighter Shades */
+body {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    transition: filter 0.5s ease-in-out; /* For blur effect */
+}
+
+/* Balanced Dark Glassmorphic Form Container */
+.container {
+    max-width: 450px;
+    background: rgba(25, 25, 25, 0.9); /* Slightly lighter glass effect */
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: start;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Darker but Visible Form Fields */
+.form-control {
+    background: rgba(45, 45, 45, 0.8);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    background: rgba(55, 55, 55, 0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    outline: none;
+}
+
+/* Lighter Placeholder Text */
+input::placeholder, 
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important; /* Light gray for better visibility */
+    opacity: 1 !important;
+}
+
+/* Error Messages */
+small {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    color: #ff4d4d;
+}
+
+/* Submit Button (Enhanced Contrast) */
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff4757, #e84118);
+    box-shadow: 0px 5px 15px rgba(255, 71, 87, 0.5);
+}
+
+/* Success Message */
+#successMessage {
+    background: rgba(40, 150, 60, 0.9);
+    color: white;
+    padding: 12px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
