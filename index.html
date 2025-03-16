@@ -11,33 +11,33 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">User Registration</h2>
-        <form id="registrationForm">
+        <form id="registrationForm" onsubmit="event.preventDefault(); validateForm();">
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" onchange="validateField(this)">
                 <small class="text-danger" id="nameError"></small>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email ID</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" onchange="validateField(this)">
                 <small class="text-danger" id="emailError"></small>
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" onchange="validateField(this)">
                 <small class="text-danger" id="phoneError"></small>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" onchange="validateField(this)">
                 <small class="text-danger" id="passwordError"></small>
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" onchange="validateField(this)">
                 <small class="text-danger" id="confirmPasswordError"></small>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Register</button>
+            <button type="button" id="registerButton" class="btn btn-primary w-100">Register</button> <!-- type button -->
         </form>
     </div>
     <script src="index.js"></script>
